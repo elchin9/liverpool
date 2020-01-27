@@ -1,0 +1,64 @@
+﻿
+@{
+    @model HistoryViewModel
+    ViewData["Title"] = "History";
+}
+<!-- Start main-slider -->
+
+<section id="main-slider"
+         style="background: url('/images/@Model.Image.HistoryPhotoURL');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+    <div class="overlay-slider"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="main-content">
+                    <div class="main-image">
+                        <img src="~/images/logo.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="main-content">
+                    <div class="main-info">
+                        <h2>Liverpool FC</h2>
+                        <p>You will Never Walk Alone !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End main-slider -->
+<!-- Start History Section -->
+
+<section id="history-club">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading-club-section">
+                    <h2>Tarixi</h2>
+                    <div class="line-section"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 col-md-9">
+                <div class="history-info">
+                    <p>
+                       @Model.History.Info
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="history-image text-center">
+                    <img src="~/images/first-logo.png" alt="">
+                    <img src="~/images/2-logo.svg" alt="">
+                    <img src="~/images/3-logo.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End History Section -->

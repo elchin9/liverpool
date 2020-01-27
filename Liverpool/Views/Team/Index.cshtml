@@ -1,0 +1,143 @@
+﻿
+@{
+    @model TeamViewModel
+    ViewData["Title"] = "Index";
+}
+
+<!-- Start main-slider -->
+
+<section id="main-slider"
+         style="background: url('/images/@Model.Image.SquadPhotoURL');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+    <div class="overlay-slider"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="main-content">
+                    <div class="main-image">
+                        <img src="~/images/logo.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="main-content">
+                    <div class="main-info">
+                        <h2>Liverpool FC</h2>
+                        <p>You will Never Walk Alone !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End main-slider -->
+
+<section id="squad">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading-club-section">
+                    <h2>Heyyəti</h2>
+                    <div class="line-section"></div>
+                </div>
+            </div>
+        </div>
+        @foreach (var p in Model.Position)
+        {
+        <div class="row mt-5">
+            <div class="col-12">
+                <h4>@p.Name</h4>
+            </div>
+            @foreach (var player in p.Players)
+            {
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="squad-content">
+                        <div class="squad-image">
+                            <img src="~/images/@player.PhotoURL" alt="">
+                        </div>
+                        <div class="squad-info text-center">
+                            <div class="squad-info-p d-flex align-items-center justify-content-center">
+                                <p>@player.Firstname @player.Lastname</p>
+                            </div>
+                            <a asp-controller="Team" asp-action="Details" asp-route-id="@player.Id">
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        }
+        <div class="row mt-5 d-none d-lg-block">
+            <div class="col-12">
+                <div class="squad-stadium">
+                    <button>Stadion üzrə bax</button>
+                </div>
+                <div class="stadium-3d">
+                    <div class="stad-img">
+                        <img src="~/images/field.png" class="first-image" alt="">
+                        @foreach (var p in Model.FirstTeam)
+                        {
+                            if (p.Name == "Goalkeeper")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image gk" alt="">
+                                <p class="gk-p">@p.Player.Firstname</p>
+                            }
+                            if (p.Name == "stoper-left")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image st" alt="">
+                                <p class="st-p">@p.Player.Firstname</p>
+                            }
+                            if (p.Name == "stoper-right")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image st-2" alt="">
+                                <p class="st-2-p">@p.Player.Firstname</p>
+                            }
+                            if (p.Name == "lb")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image lb" alt="">
+                                <p class="lb-p">@p.Player.Firstname</p>
+                            }
+                            if (p.Name == "rb")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image rb" alt="">
+                                <p class="rb-p">@p.Player.Firstname</p>
+                            }
+                            if (p.Name == "rm")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image rm" alt="">
+                                <p class="rm-p">@p.Player.Firstname</p>
+                            }
+                            if (p.Name == "lm")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image lm" alt="">
+                                <p class="lm-p">@p.Player.Firstname</p>
+                            }
+                            if (p.Name == "cm")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image cm" alt="">
+                                <p class="cm-p">@p.Player.Firstname</p>
+                            }
+                            if (p.Name == "lw")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image lw" alt="">
+                                <p class="lw-p">@p.Player.Firstname</p>
+                            }
+                            if (p.Name == "rw")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image rw" alt="">
+                                <p class="rw-p">@p.Player.Firstname</p>
+                            }
+                            if (p.Name == "cw")
+                            {
+                                <img src="~/images/@p.Player.PhotoURL" class="circle-image cw" alt="">
+                                <p class="cw-p">@p.Player.Firstname</p>
+                            }
+                        }
+
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

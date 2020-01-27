@@ -1,0 +1,38 @@
+﻿
+@{
+    @model Player
+    ViewData["Title"] = "Details";
+}
+
+<section id="player-background" style="background-image:url('/images/@Model.BackgroundPhotoURL');background-attachment:fixed;background-size:cover; width:100%; padding:70px;">
+    <div class="overlay-slider"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 d-flex justify-content-center">
+                <div class="player-image">
+                    <img src="~/images/@Model.PhotoURL" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-start">
+                <div class="player-info">
+                    <h3>@Model.Firstname @Model.Lastname</h3>
+                    <p>Doğulduğu il : @Model.Birthday</p>
+                    <p>Ölkə : @Model.Country</p>
+                    <p>Mövqe : @Model.Position.Name</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="player">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-12 text-center">
+                <h4 class="details-h2">Haqqında :</h4>
+                <p class="details-player">@Model.Info</p>
+            </div>
+        </div>
+    </div>
+</section>

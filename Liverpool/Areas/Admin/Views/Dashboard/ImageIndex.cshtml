@@ -1,0 +1,49 @@
+﻿
+
+@{
+    @model BackgroundImages
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Index";
+}
+
+<div class="page-container">
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3>Arxa Fon şəkilləri</h3>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12 staticDataAdmin">
+                        <div class="images-admin-panel">
+                            <h5>Stadium Səhifəsi üçün</h5>
+                            <img src="~/images/@Model.StadiumPhotoURL" style="max-height: 300px;object-fit:cover;"/>
+                        </div>
+                        <div class="images-admin-panel mt-3">
+                            <h5>Heyyət səhifəsi üçün</"></h5>
+
+                            <img src="~/images/@Model.SquadPhotoURL" style="max-height: 300px;object-fit:cover;"/>
+                        </div>
+                        <div class="images-admin-panel mt-3">
+                            <h5>Klub Tarixi səhifəsi üçün</h5>
+
+                            <img src="~/images/@Model.HistoryPhotoURL" style="max-height: 300px;object-fit:cover;" />
+                        </div>
+                        <div class="images-admin-panel mt-3">
+                            <h5>Kuboklar səhifəsi üçün</h5>
+
+                            <img src="~/images/@Model.CupPhotoURL" style="max-height: 300px;object-fit:cover;"/>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center mt-5 btnEditStatic">
+                        <a asp-controller="Dashboard" asp-action="Edit" asp-route-id="@Model.Id" class="btn-create"> Dəyişdir </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

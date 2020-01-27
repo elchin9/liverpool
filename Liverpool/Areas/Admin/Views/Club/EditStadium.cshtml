@@ -1,0 +1,79 @@
+﻿
+@{
+    @model Stadium
+    Layout = "_AdminLayout";
+
+    ViewData["Title"] = "Contact";
+}
+
+
+<!-- Start Contact Section -->
+
+<div class="page-container">
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3>Stadionu düzəlt</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <form method="post" class="mt-4" enctype="multipart/form-data">
+
+                            <div class="form-group">
+                                <label asp-for="AllPhotos">Stadionun Şəkillərini seçin</label>
+                                <div class="uploadArea">
+                                    <div class="uploadImage d-flex justify-content-center align-items-center">
+                                        <i class="fal fa-cloud-upload"></i>
+                                    </div>
+                                </div>
+                                <input id="uploadInput" multiple asp-for="AllPhotos" accept="image/*" class="form-control" />
+                                <span asp-validation-for="AllPhotos" class="text-danger"></span>
+                                <p class="file-view">Şəkil seçildi</p>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Name">Stadionun adı</label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Time">İli</label>
+                                <input asp-for="Time" class="form-control" />
+                                <span asp-validation-for="Time" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Capacity">Tutumu</label>
+                                <input asp-for="Capacity" class="form-control" />
+                                <span asp-validation-for="Capacity" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="MainInfo">Xəbərin mətni</label>
+                                <textarea asp-for="MainInfo" style="width:100%;" rows="6"></textarea>
+                                <span asp-validation-for="MainInfo" class="text-danger"></span>
+                            </div>
+
+                            <input type="submit" class="btn-create" value="Dəyiş" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- End Contact Section -->
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

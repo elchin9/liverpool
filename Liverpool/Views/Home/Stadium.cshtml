@@ -1,0 +1,89 @@
+﻿
+@{
+    @model StadiumViewModel
+    ViewData["Title"] = "Stadium";
+}
+
+<!-- Start main-slider -->
+
+<section id="main-slider"
+         style="background: url('/images/@Model.Image.StadiumPhotoURL');background-position: center; background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+    <div class="overlay-slider"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="main-content">
+                    <div class="main-image">
+                        <img src="~/images/logo.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="main-content">
+                    <div class="main-info">
+                        <h2>@Model.Stadium.Name</h2>
+                        <p>Açılışı : @Model.Stadium.Time</p>
+                        <p>Tutumu : @Model.Stadium.Capacity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End main-slider -->
+<!-- Start Stadium -->
+
+<section id="stadium-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading-club-section">
+                    <h2>Stadion</h2>
+                    <div class="line-section"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="stadium-info">
+                    <p>@Model.Stadium.MainInfo
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            @foreach (var p in Model.Stadium.Photos)
+            {
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="image-slider-stadium">
+                        <img src="~/images/@p.PhotoURL" alt="">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="container">
+        <div class="inner-slider">
+            <div class="inner-slide">
+                <ul class="inner-photos d-flex p-0 m-0">
+                    @foreach (var p in Model.Stadium.Photos)
+                    {
+                        <li><img src="~/images/@p.PhotoURL" alt=""></li>
+                    }
+                </ul>
+                <div class="inner-arrow-left">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="inner-arrow-right">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <i class="close fas fa-times"></i>
+        </div>
+    </div>
+</section>
+
+<!-- End Stadium -->

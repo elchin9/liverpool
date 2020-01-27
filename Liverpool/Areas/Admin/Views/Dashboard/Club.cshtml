@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Club";
+    Layout = "_AdminLayout";
+
+}
+
+<!-- MAIN CONTENT-->
+<div class="page-container">
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3>Menu</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="menu-icon-admin text-center">
+                            <a asp-controller="Club" asp-action="GetHistory">
+                                <i class="fal fa-history"></i>
+                                <p>Klub Tarixi</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+
+                        <div class="menu-icon-admin text-center">
+                            <a asp-controller="Club" asp-action="GetStadium">
+                                <i class="fad fa-archway"></i>
+                                <p>Stadion</p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTENT-->

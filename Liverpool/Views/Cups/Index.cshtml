@@ -1,0 +1,71 @@
+﻿
+@{
+    @model CupViewModel
+    ViewData["Title"] = "Index";
+}
+
+<!-- Start main-slider -->
+
+<section id="main-slider"
+         style="background: url('images/@Model.Image.CupPhotoURL');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+    <div class="overlay-slider"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="main-content">
+                    <div class="main-image">
+                        <img src="~/images/logo.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="main-content">
+                    <div class="main-info">
+                        <h2>Liverpool FC</h2>
+                        <p>You will Never Walk Alone !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End main-slider -->
+<!-- Start Cup -->
+
+<section id="cup">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading-club-section">
+                    <h2>Kuboklar</h2>
+                    <div class="line-section"></div>
+                </div>
+            </div>
+        </div>
+        @foreach (var ct in Model.CupType)
+        {
+            @if (Model.AllCups.Where(c => c.CupTypeId == ct.Id).Count() > 0)
+            {
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h4>@Model.AllCups.Where(c => c.CupTypeId == ct.Id).Count() @ct.Name</h4>
+                    </div>
+                    @foreach (var c in Model.AllCups.Where(c => c.CupTypeId == ct.Id))
+                    {
+                        <div class="col-4 col-md-2 col-lg-1 text-center">
+                            <a asp-controller="Cups" asp-action="Details" asp-route-id="@c.Id">
+                                <div class="cup-image">
+                                    <img src="~/images/cups/@ct.PhotoURL" alt="">
+                                    <p>@c.Time</p>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </div>
+</section>
+
+<!-- End Cup -->

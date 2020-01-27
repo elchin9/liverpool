@@ -1,0 +1,172 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Liverpool Azerbaijan</title>
+</head>
+
+<body>
+
+    <!-- Start Header -->
+
+    <header>
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="menu d-none d-md-block">
+                <ul class="d-flex first-menu">
+                    <li class="sub-menu-li this-menu"><a  asp-controller="Home" asp-action="Index">Əsas səhifə</a></li>
+                    <li class="sub-menu-li">
+                        <a href="#">Klub</a>
+                        <ul class="sub-menu">
+                            <li><a asp-controller="Home" asp-action="History">Klub Tarixi</a></li>
+                            <li><a asp-controller="Team" asp-action="Index">Heyyət</a></li>
+                            <li><a asp-controller="Cups" asp-action="Index">Kuboklar</a></li>
+                            <li><a asp-controller="Home" asp-action="Stadium">Anfield</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu-li">
+                        <a asp-controller="News" asp-action="Index">Xəbərlər</a>
+                        <ul class="sub-menu">
+                            <li><a asp-controller="Video" asp-action="Index">İcmal</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="logo">
+                <a class=" d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo2.png" alt="">
+                </a>
+            </div>
+            <div class="menu d-none d-md-block">
+                <ul class="d-flex">
+                    <li class="sub-menu-li">
+                        <a href="#">Fan Klub</a>
+                        <ul class="sub-menu">
+                            <li><a asp-controller="Home" asp-action="Gallery">Qalereya</a></li>
+                            <li><a asp-controller="Home" asp-action="Events">Eventlər</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu-li"><a asp-controller="Home" asp-action="Contact">Əlaqə</a></li>
+                </ul>
+            </div>
+            <div class="mobile-nav d-block d-md-none">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <ul>
+                <li class="sub-menu-mobile-li"><a  asp-controller="Home" asp-action="Index">Əsas səhifə</a></li>
+                <li class="sub-menu-mobile-li">
+                    <a href="#">Klub</a>
+                    <ul class="sub-menu-mobile">
+                        <li><a asp-controller="Home" asp-action="History">Klub Tarixi</a></li>
+                        <li><a asp-controller="Team" asp-action="Index">Heyyət</a></li>
+                        <li><a asp-controller="Cups" asp-action="Index">Kuboklar</a></li>
+                        <li><a asp-controller="Home" asp-action="Stadium">Anfield</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu-mobile-li">
+                    <a asp-controller="News" asp-action="Index">Xəbərlər</a>
+                    <ul class="sub-menu-mobile">
+                        <li><a asp-controller="Video" asp-action="Index">İcmal</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu-mobile-li">
+                    <a href="#">Fan Klub</a>
+                    <ul class="sub-menu-mobile">
+                        <li><a asp-controller="Home" asp-action="Gallery">Qalereya</a></li>
+                        <li><a asp-controller="Home" asp-action="Events">Eventlər</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu-mobile-li"><a asp-controller="Home" asp-action="Contact">Əlaqə</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- End Header -->
+
+    @RenderBody()
+
+
+
+
+    <!-- Start Contact -->
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="heading-contact">
+                        <h2>Əlaqə</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 col-md-6">
+                    <div class="contact-real mt-4">
+                        <div class="contact-phone">
+                            <p>Telefon : <span>+994 000 000 00 00</span></p>
+                        </div>
+                        <div class="contact-mail">
+                            <p>Email : <span>liverpool_aze@gmail.com</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="contact-virtual mt-4">
+                        <p>Social :</p>
+                        <ul class="d-flex align-items-center mt-2">
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- End COntact -->
+    <!-- Start Footer -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-10 text-center">
+                    <p>2019 © All rights Reserved. Website by Alchin.</p>
+                </div>
+                <div class="col-12 col-md-2 d-flex justify-content-center">
+                    <div class="goTop mt-2 mt-md-0">
+                        <i class="fas fa-long-arrow-alt-up"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- End Footer -->
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/e3bdd94f75.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+    </script>
+    <script src="~/js/icons.js"></script>
+    <script src="~/js/main.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

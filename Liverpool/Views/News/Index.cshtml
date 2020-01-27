@@ -1,0 +1,59 @@
+﻿
+@{
+    @model IEnumerable<News>
+    ViewData["Title"] = "Index";
+}
+
+
+<section id="news">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3>Xəbərlər</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Start Latest News -->
+
+<section id="latest-news" style="background: white;">
+    <div class="container">
+        <div class="row mt-3">
+            @foreach (var n in Model)
+            {
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <a asp-controller="News" asp-action="Details" asp-route-id="@n.Id">
+                        <div class="last-content">
+                            <div class="last-images">
+                                <img src="~/images/@n.Photos.FirstOrDefault().PhotoURL" alt="">
+                                <div class="img-info">
+                                    <p>@n.Category.Name</p>
+                                </div>
+                            </div>
+                            <div class="last-info">
+                                <h4>@n.Title</h4>
+                                <span>@n.Time</span>
+                            </div>
+                        </div>
+                    </a>
+                   
+                </div>
+            }
+
+        </div>
+        @if (ViewBag.Count > 14)
+        {
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <div class="btn-load-more">
+                        <a href="#">Daha Çox</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<!-- End Latest News -->
