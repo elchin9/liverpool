@@ -19,6 +19,7 @@ namespace Liverpool.Controllers
         }
         public IActionResult Index()
         {
+            ViewBag.Active = "Club";
             CupViewModel viewModel = new CupViewModel()
             {
                 Image = _context.BackgroundImages.FirstOrDefault(),
@@ -31,10 +32,10 @@ namespace Liverpool.Controllers
 
         public async Task<IActionResult> Details(int? id)
         {
+            ViewBag.Active = "Club";
             if (id == null) return View("Error");
 
             Cup cup = await _context.Cup.FindAsync(id);
-
             if (cup == null) return View("Error");
 
             return View(cup);

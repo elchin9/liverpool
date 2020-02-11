@@ -1,0 +1,45 @@
+﻿
+@{
+    @model StaticData
+    Layout = null;
+}
+
+<div class="row mt-3">
+    <div class="col-12 col-md-6">
+        <div class="contact-real mt-4">
+            <div class="contact-phone">
+                <p>Telefon : <span>@Model.Phone</span></p>
+            </div>
+            <div class="contact-mail">
+                <p>Email : <span>@Model.Email</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="contact-virtual mt-4">
+            <p>Social :</p>
+            <ul class="d-flex align-items-center mt-2">
+                <li>
+                    <a href="@Model.FacebookLink">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Model.InstagramLink">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Model.TwitterLink">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Model.YoutubeLink">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

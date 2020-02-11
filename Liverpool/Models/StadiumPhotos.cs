@@ -12,7 +12,6 @@ namespace Liverpool.Models
     {
         public int Id { get; set; }
 
-        [Required, StringLength(100)]
         public string PhotoURL { get; set; }
 
         public int StadiumId { get; set; }

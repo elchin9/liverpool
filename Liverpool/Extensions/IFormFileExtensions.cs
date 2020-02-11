@@ -12,7 +12,7 @@ namespace Liverpool.Extensions
         public async static Task<string> SaveAsync(this IFormFile file, string root, string folder)
         {
             string path = Path.Combine(root, "images");
-            string fileName = Path.Combine(folder, Guid.NewGuid().ToString() + file.FileName);
+            string fileName = Path.Combine(folder, Guid.NewGuid().ToString() + file.FileName).Replace('\\', '/');
 
             string resultPath = Path.Combine(path, fileName);
 
@@ -27,7 +27,7 @@ namespace Liverpool.Extensions
         public async static Task<string> SaveWithoutFolderAsync(this IFormFile file, string root)
         {
             string path = Path.Combine(root, "images");
-            string fileName = Path.Combine(Guid.NewGuid().ToString() + file.FileName);
+            string fileName = Path.Combine(Guid.NewGuid().ToString() + file.FileName).Replace('\\', '/');
 
             string resultPath = Path.Combine(path, fileName);
 

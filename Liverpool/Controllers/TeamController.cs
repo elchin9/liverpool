@@ -20,6 +20,7 @@ namespace Liverpool.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Active = "Club";
             TeamViewModel viewModel = new TeamViewModel()
             {
                 Image = _context.BackgroundImages.FirstOrDefault(),
@@ -33,6 +34,7 @@ namespace Liverpool.Controllers
 
         public async Task<IActionResult> Details(int? id)
         {
+            ViewBag.Active = "Club";
             if (id == null) return View("Error");
 
             Player player = await _context.Player.FindAsync(id);

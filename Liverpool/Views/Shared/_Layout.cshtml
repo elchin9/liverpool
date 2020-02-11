@@ -22,8 +22,8 @@
         <div class="container d-flex align-items-center justify-content-between">
             <div class="menu d-none d-md-block">
                 <ul class="d-flex first-menu">
-                    <li class="sub-menu-li this-menu"><a  asp-controller="Home" asp-action="Index">Əsas səhifə</a></li>
-                    <li class="sub-menu-li">
+                    <li class="sub-menu-li @((ViewBag.Active == "Home") ? "this-menu" :  " " )"><a  asp-controller="Home" asp-action="Index">Əsas səhifə</a></li>
+                    <li class="sub-menu-li @((ViewBag.Active == "Club") ? "this-menu" :  " " )">
                         <a href="#">Klub</a>
                         <ul class="sub-menu">
                             <li><a asp-controller="Home" asp-action="History">Klub Tarixi</a></li>
@@ -32,7 +32,7 @@
                             <li><a asp-controller="Home" asp-action="Stadium">Anfield</a></li>
                         </ul>
                     </li>
-                    <li class="sub-menu-li">
+                    <li class="sub-menu-li @((ViewBag.Active == "News") ? "this-menu" :  " " )">
                         <a asp-controller="News" asp-action="Index">Xəbərlər</a>
                         <ul class="sub-menu">
                             <li><a asp-controller="Video" asp-action="Index">İcmal</a></li>
@@ -47,14 +47,14 @@
             </div>
             <div class="menu d-none d-md-block">
                 <ul class="d-flex">
-                    <li class="sub-menu-li">
+                    <li class="sub-menu-li @((ViewBag.Active == "FanClub") ? "this-menu" :  " " )">
                         <a href="#">Fan Klub</a>
                         <ul class="sub-menu">
                             <li><a asp-controller="Home" asp-action="Gallery">Qalereya</a></li>
                             <li><a asp-controller="Home" asp-action="Events">Eventlər</a></li>
                         </ul>
                     </li>
-                    <li class="sub-menu-li"><a asp-controller="Home" asp-action="Contact">Əlaqə</a></li>
+                    <li class="sub-menu-li @((ViewBag.Active == "Contact") ? "this-menu" :  " " )"><a asp-controller="Home" asp-action="Contact">Əlaqə</a></li>
                 </ul>
             </div>
             <div class="mobile-nav d-block d-md-none">
@@ -109,35 +109,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="col-12 col-md-6">
-                    <div class="contact-real mt-4">
-                        <div class="contact-phone">
-                            <p>Telefon : <span>+994 000 000 00 00</span></p>
-                        </div>
-                        <div class="contact-mail">
-                            <p>Email : <span>liverpool_aze@gmail.com</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="contact-virtual mt-4">
-                        <p>Social :</p>
-                        <ul class="d-flex align-items-center mt-2">
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("Contact")
         </div>
     </section>
 

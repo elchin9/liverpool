@@ -28,6 +28,7 @@ namespace Liverpool.Controllers
                 News = _context.News.OrderByDescending(v => v.Id).Take(4),
                 Event = _context.Event.OrderByDescending(e => e.Id).FirstOrDefault()
             };
+            ViewBag.Active = "Home";
 
             return View(viewModel);
         }
@@ -70,17 +71,20 @@ namespace Liverpool.Controllers
 
         public IActionResult Gallery()
         {
+            ViewBag.Active = "FanClub";
             ViewBag.ImageCount = _context.Gallery.Count();
             return View(_context.Gallery.OrderByDescending(g => g.Id).Take(20));
         }
 
         public IActionResult Events()
         {
+            ViewBag.Active = "FanClub";
             return View(_context.Event);
         }
 
         public IActionResult History()
         {
+            ViewBag.Active = "Club";
             HistoryViewModel viewModel = new HistoryViewModel()
             {
                 Image = _context.BackgroundImages.FirstOrDefault(),
@@ -92,6 +96,7 @@ namespace Liverpool.Controllers
 
         public IActionResult Stadium()
         {
+            ViewBag.Active = "Club";
             StadiumViewModel viewModel = new StadiumViewModel()
             {
                 Image = _context.BackgroundImages.FirstOrDefault(),

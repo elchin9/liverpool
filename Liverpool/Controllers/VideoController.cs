@@ -19,6 +19,7 @@ namespace Liverpool.Controllers
         }
         public IActionResult Index()
         {
+            ViewBag.Active = "News";
             ViewBag.Count = _context.Video.Count();
 
             return View(_context.Video.OrderByDescending(v => v.Id).Take(12));
@@ -26,6 +27,7 @@ namespace Liverpool.Controllers
 
         public async Task<IActionResult> Details(int? id)
         {
+            ViewBag.Active = "News";
             if (id == null) return View("Error");
 
             Video video = await _context.Video.FindAsync(id);

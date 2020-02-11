@@ -1,0 +1,48 @@
+﻿
+@{
+    @model FirstTeam
+      Layout = "_AdminLayout";
+    ViewData["Title"] = "Contact";
+}
+
+
+<!-- Start Contact Section -->
+
+<div class="page-container">
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3>Əsas heyyəti dəyiş</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <form method="post" class="mt-4" enctype="multipart/form-data">
+
+                            <div class="form-group">
+                                <label asp-for="PlayerId">Mövqe</label>
+                                <select asp-for="PlayerId" asp-items="@(new SelectList(ViewBag.Players ,"Id","Firstname"))" style="width:100%; padding: 10px;"></select>
+                                <span asp-validation-for="PlayerId" class="text-danger"></span>
+                            </div>
+
+                            <input type="submit" class="btn-create" value="Dəyiş" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- End Contact Section -->
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

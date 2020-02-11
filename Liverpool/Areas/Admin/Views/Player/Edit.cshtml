@@ -1,0 +1,107 @@
+﻿
+@{
+    @model Player
+      Layout = "_AdminLayout";
+    ViewData["Title"] = "Contact";
+}
+
+
+<!-- Start Contact Section -->
+
+<div class="page-container">
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3>Oyunçunu dəyiş</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <form method="post" class="mt-4" enctype="multipart/form-data">
+
+                            <div class="form-group">
+                                <label asp-for="Photo">Oyunçunun Şəklini seçin</label>
+                                <div class="uploadArea">
+                                    <div class="uploadImage d-flex justify-content-center align-items-center">
+                                        <i class="fal fa-cloud-upload"></i>
+                                    </div>
+                                </div>
+                                <input id="uploadInput" multiple asp-for="Photo" accept="image/*" class="form-control" />
+                                <span asp-validation-for="Photo" class="text-danger"></span>
+                                <p class="file-view">Şəkil seçildi</p>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="BackgroundPhoto">Oyunçunun arxa fon şəklini seçin</label>
+                                <div class="uploadArea">
+                                    <div class="uploadImageSecond d-flex justify-content-center align-items-center">
+                                        <i class="fal fa-cloud-upload"></i>
+                                    </div>
+                                </div>
+                                <input multiple asp-for="BackgroundPhoto" accept="image/*" class="form-control uploadInputSecond" />
+                                <span asp-validation-for="BackgroundPhoto" class="text-danger"></span>
+                                <p class="file-view-second">Şəkil seçildi</p>
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Firstname">Ad</label>
+                                <input asp-for="Firstname" class="form-control" />
+                                <span asp-validation-for="Firstname" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Lastname">Soyad</label>
+                                <input asp-for="Lastname" class="form-control" />
+                                <span asp-validation-for="Lastname" class="text-danger"></span>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label asp-for="PositionId">Mövqe</label>
+                                <select asp-for="PositionId" asp-items="@(new SelectList(ViewBag.Position ,"Id","Name"))" style="width:100%; padding: 10px;"></select>
+                                <span asp-validation-for="PositionId" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Birthday">Doğum tarixi</label>
+                                <input asp-for="Birthday" class="form-control" />
+                                <span asp-validation-for="Birthday" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Country">Ölkə</label>
+                                <input asp-for="Country" class="form-control" />
+                                <span asp-validation-for="Country" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Info">Oyunçu haqqında</label>
+                                <textarea asp-for="Info" style="width:100%;" rows="6"></textarea>
+                                <span asp-validation-for="Info" class="text-danger"></span>
+                            </div>
+
+
+
+                            <input type="submit" class="btn-create" value="Dəyiş" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- End Contact Section -->
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

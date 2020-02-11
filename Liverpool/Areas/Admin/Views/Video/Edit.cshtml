@@ -1,0 +1,87 @@
+﻿
+@{
+    @model Video
+      Layout = "_AdminLayout";
+    ViewData["Title"] = "Contact";
+}
+
+
+<!-- Start Contact Section -->
+
+<div class="page-container">
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3>Xəbər Yarat</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <form method="post" class="mt-4" enctype="multipart/form-data">
+
+
+                            <div class="form-group">
+                                <label asp-for="Photo">Icmalın Şəklini seçin</label>
+                                <div class="uploadArea">
+                                    <div class="uploadImage d-flex justify-content-center align-items-center">
+                                        <i class="fal fa-cloud-upload"></i>
+                                    </div>
+                                </div>
+                                <input id="uploadInput" multiple asp-for="Photo" accept="image/*" class="form-control" />
+                                <span asp-validation-for="Photo" class="text-danger"></span>
+                                <p class="file-view">Şəkil seçildi</p>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CategoryId">Kateqoriya</label>
+                                <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.VideoCategory ,"Id","Name"))" style="width:100%; padding: 10px;"></select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Title">Başlıq</label>
+                                <input asp-for="Title" class="form-control" />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Time">Vaxt</label>
+                                <input asp-for="Time" class="form-control" />
+                                <span asp-validation-for="Time" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="MainInfo">İcmal haqqında</label>
+                                <textarea asp-for="MainInfo" style="width:100%;" rows="6"></textarea>
+                                <span asp-validation-for="MainInfo" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="VideoLink">Video Linki</label>
+                                <input asp-for="VideoLink" class="form-control" />
+                                <span asp-validation-for="VideoLink" class="text-danger"></span>
+                            </div>
+
+
+                            <input type="submit" class="btn-create" value="Dəyiş" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- End Contact Section -->
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
