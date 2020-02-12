@@ -33,8 +33,9 @@
                         </ul>
                     </li>
                     <li class="sub-menu-li @((ViewBag.Active == "News") ? "this-menu" :  " " )">
-                        <a asp-controller="News" asp-action="Index">Xəbərlər</a>
+                        <a href="#">Məlumat</a>
                         <ul class="sub-menu">
+                            <li><a asp-controller="News" asp-action="Index">Xəbərlər</a></li>
                             <li><a asp-controller="Video" asp-action="Index">İcmal</a></li>
                         </ul>
                     </li>

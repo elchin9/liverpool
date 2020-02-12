@@ -95,66 +95,17 @@ $(document).ready(function () {
     });
 
     // End Squad Stadium
-
-    let innerSlidervW = $(".inner-photos li img").width();
-    let totalWidthInnerSlider = $(".inner-photos li").length * innerSlidervW;
-
-    $(".inner-photos").css("width", totalWidthInnerSlider + "px");
-
-    let innerSliderIndex = 0;
-    const innerSlides = $('.inner-photos li');
-
-
-    $(document).on("click", ".image-slider-stadium", function () {
-
-        var indexImg = $(".image-slider-stadium").index(this);
-        $(".inner-slider ul").css("left", -indexImg * innerSlidervW);
+    $(document).on("click", ".image-slider-stadium img", function () {
+        var photoSrc = $(this).attr("src");
+        $(".inner-slider .inner-photos-stadium img").attr("src", photoSrc);
+        $(".inner-slider").css("display", "block");
+    });
+    $(document).on("click", ".one-photo img", function () {
+        var photoSrc = $(this).attr("src");
+        $(".inner-slider .inner-photos img").attr("src", photoSrc);
         $(".inner-slider").css("display", "block");
 
     });
-    $(document).on("click", ".one-photo", function(){
-        var indexImg = $(".one-photo").index(this);
-        $(".inner-slider ul").css("left", -indexImg * innerSlidervW);
-        $(".inner-slider").css("display", "block");
-
-    });
-
-    $(document).on("click", ".inner-arrow-left", function()
-    {
-        innerSlideLeft();
-    });
-
-    $(document).on("click", ".inner-arrow-right", function()
-    {
-        innerSlideRight();
-    });
-
-    function innerSlide()
-    {
-        let innerSlidervW = $(".inner-photos li img").width();
-        $('.inner-photos').css("left", -innerSliderIndex * innerSlidervW + "px");
-    }
-
-    function innerSlideRight(){
-        innerSliderIndex++
-
-        if(innerSliderIndex === innerSlides.length)
-        {
-            innerSliderIndex = 0;
-   	    }
-   	    innerSlide();
-    }
-
-    function innerSlideLeft()
-    {
-        innerSliderIndex--;
-        if(innerSliderIndex < 0)
-        {
-            innerSliderIndex = innerSlides.length - 1; 
-        }    
-        innerSlide();
-    }
-
     $(document).on("click", ".close", function(){
 
         $(".inner-slider").css("display", "none");
@@ -299,4 +250,99 @@ $(document).ready(function () {
         $(".temp-message").fadeOut(3000);
     }, 6000);
 
+    //Load More Gallery Ajax
+    var galleryCount = 20;
+    $(".btn-gallery").click(function (e) {
+        var totalCount = +$("#gallery-hidden-input").val();
+
+        e.preventDefault();
+        $.ajax({
+            url: "/Ajax/LoadGallery?skip=" + galleryCount,
+            type: "GET",
+            success: function (res) {
+                $("#gallery .galleryRow").append(res);
+                galleryCount += 8;
+
+                if (galleryCount >= totalCount) {
+                    $(".btn-gallery").css("display", "none");
+                }
+            }
+        });
+    });
+    //Load More Event Ajax
+    var eventCount = 2;
+    $(".btn-event").click(function (e) {
+        var totalCount = +$("#event-hidden-input").val();
+
+        e.preventDefault();
+        $.ajax({
+            url: "/Ajax/LoadEvent?skip=" + eventCount,
+            type: "GET",
+            success: function (res) {
+                $("#event .eventRow").append(res);
+                eventCount += 2;
+
+                if (eventCount >= totalCount) {
+                    $(".btn-event").css("display", "none");
+                }
+            }
+        });
+    });
+    //Load More News Ajax
+    var newsCount = 16;
+    $(".btn-news").click(function (e) {
+        var totalCount = +$("#news-hidden-input").val();
+
+        e.preventDefault();
+        $.ajax({
+            url: "/Ajax/LoadNews?skip=" + newsCount,
+            type: "GET",
+            success: function (res) {
+                $("#latest-news .newsRow").append(res);
+                newsCount += 8;
+
+                if (newsCount >= totalCount) {
+                    $(".btn-news").css("display", "none");
+                }
+            }
+        });
+    });
+    //Load More Video Ajax
+    var videoCount = 12;
+    $(".btn-video").click(function (e) {
+        var totalCount = +$("#video-hidden-input").val();
+
+        e.preventDefault();
+        $.ajax({
+            url: "/Ajax/LoadVideos?skip=" + videoCount,
+            type: "GET",
+            success: function (res) {
+                $("#last-match .videoRow").append(res);
+                videoCount += 8;
+
+                if (videoCount >= totalCount) {
+                    $(".btn-video").css("display", "none");
+                }
+            }
+        });
+    });
+    //Load More Video Ajax
+    var stadiumCount = 12;
+    $(".btn-stadium").click(function (e) {
+        var totalCount = +$("#stadium-hidden-input").val();
+
+        e.preventDefault();
+        $.ajax({
+            url: "/Ajax/LoadStadiumPhotos?skip=" + stadiumCount,
+            type: "GET",
+            success: function (res) {
+                $("#stadium-section .stadiumRow").append(res);
+                stadiumCount += 8;
+
+                if (stadiumCount >= totalCount) {
+                    $(".btn-stadium").css("display", "none");
+                }
+            }
+        });
+    });
 });

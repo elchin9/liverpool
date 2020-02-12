@@ -20,7 +20,7 @@ namespace Liverpool.Controllers
         public IActionResult Index()
         {
             ViewBag.Active = "News";
-            ViewBag.Count = _context.Video.Count();
+            ViewBag.VideoCount = _context.Video.Count();
 
             return View(_context.Video.OrderByDescending(v => v.Id).Take(12));
         }

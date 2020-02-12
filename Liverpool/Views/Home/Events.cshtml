@@ -3,6 +3,9 @@
     @model IEnumerable<Event>
     ViewData["Title"] = "Events";
 }
+
+<input type="hidden" id="event-hidden-input" value="@ViewBag.EventCount" />
+
 <section id="news">
     <div class="container">
         <div class="row">
@@ -16,32 +19,10 @@
 
 <section id="event">
     <div class="container">
-        <div class="row">
+        <div class="row eventRow">
             @if (Model.Where(e => e.Time > DateTime.Now).Count() > 0)
             {
-                @foreach (var e in Model)
-                {
-                    @if (e.Time > DateTime.Now)
-                    {
-                        <div class="col-12">
-                            <div class="one-event">
-                                <div class="event-info">
-                                    <h3>@e.Title</h3>
-                                    <h5>Toplanış yeri : @e.Place</h5>
-                                    <p>
-                                        Tarix : @String.Format("{0:yyyy-MM-dd}", e.Time)
-                                    </p>
-                                    <p>Saat : @e.Clock</p>
-                                    <p>Əlaqə : @e.Phone</p>
-                                </div>
-                                <div class="event-map">
-                                    <iframe src="@e.Map"
-                                            width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                }
+                <partial name="_EventPartialView" model="Model" />
             }
             else
             {
@@ -50,5 +31,15 @@
                 </div>
             }
         </div>
+        @if (ViewBag.EventCount > 2)
+        {
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <div class="btn-load-more btn-event">
+                        <a href="#">Daha Çox</a>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </section>

@@ -20,9 +20,9 @@ namespace Liverpool.Controllers
 
         public IActionResult Index(string news)
         {
-            ViewBag.Count = _context.News.Count();
+            ViewBag.NewsCount = _context.News.Count();
             ViewBag.Active = "News";
-            return View(_context.News.OrderByDescending(n => n.Id).Take(14));
+            return View(_context.News.OrderByDescending(n => n.Id).Take(16));
         }
 
         public async Task<IActionResult> Details(int? id)

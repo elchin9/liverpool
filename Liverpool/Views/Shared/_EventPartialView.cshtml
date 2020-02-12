@@ -1,0 +1,26 @@
+﻿
+@{
+    @model IEnumerable<Event>
+    Layout = null;
+}
+
+    @foreach (var e in Model)
+    {
+        <div class="col-12">
+            <div class="one-event">
+                <div class="event-info">
+                    <h3>@e.Title</h3>
+                    <h5>Toplanış yeri : @e.Place</h5>
+                    <p>
+                        Tarix : @String.Format("{0:yyyy-MM-dd}", e.Time)
+                    </p>
+                    <p>Saat : @e.Clock</p>
+                    <p>Əlaqə : @e.Phone</p>
+                </div>
+                <div class="event-map">
+                    <iframe src="@e.Map"
+                            width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    }

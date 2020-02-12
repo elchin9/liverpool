@@ -6,6 +6,8 @@
 
 <!-- Start main-slider -->
 
+<input type="hidden" id="stadium-hidden-input" value="@ViewBag.StadiumCount" />
+
 <section id="main-slider"
          style="background: url('/images/@Model.Image.StadiumPhotoURL');background-position: center; background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
     <div class="overlay-slider"></div>
@@ -49,36 +51,31 @@
         <div class="row mt-5">
             <div class="col-12">
                 <div class="stadium-info">
-                    <p>@Model.Stadium.MainInfo
+                    <p>
+                        @Model.Stadium.MainInfo
                     </p>
                 </div>
             </div>
         </div>
-        <div class="row mt-5">
-            @foreach (var p in Model.Stadium.Photos)
-            {
-                <div class="col-12 col-md-4 col-lg-3">
-                    <div class="image-slider-stadium">
-                        <img src="~/images/@p.PhotoURL" alt="">
+        <div class="row stadiumRow mt-5">
+            <partial name="_StadiumPhotosPartialView" model="Model.Stadium.Photos.Take(12)" />
+        </div>
+        @if (ViewBag.StadiumCount > 12)
+        {
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <div class="btn-load-more btn-stadium">
+                        <a href="#">Daha Çox</a>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
     <div class="container">
         <div class="inner-slider">
             <div class="inner-slide">
-                <ul class="inner-photos d-flex p-0 m-0">
-                    @foreach (var p in Model.Stadium.Photos)
-                    {
-                        <li><img src="~/images/@p.PhotoURL" alt=""></li>
-                    }
-                </ul>
-                <div class="inner-arrow-left">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="inner-arrow-right">
-                    <i class="fas fa-chevron-right"></i>
+                <div class="inner-photos-stadium d-flex p-0 m-0">
+                    <img src="" alt="">
                 </div>
             </div>
             <i class="close fas fa-times"></i>

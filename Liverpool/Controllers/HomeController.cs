@@ -43,14 +43,12 @@ namespace Liverpool.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Contact(MailBox message)
         {
-
             if (!ModelState.IsValid)
             {
                 ViewBag.Active = "Contact";
 
                 return View(message);
             }
-
             MailBox mynews = new MailBox()
             {
                 Firstname = message.Firstname,
@@ -61,7 +59,6 @@ namespace Liverpool.Controllers
             };
 
             await _context.MailBox.AddAsync(mynews);
-
             await _context.SaveChangesAsync();
 
             TempData["MessageSent"] = true;
@@ -79,7 +76,11 @@ namespace Liverpool.Controllers
         public IActionResult Events()
         {
             ViewBag.Active = "FanClub";
-            return View(_context.Event);
+            ViewBag.EventCount = _context.Event.Where(e => e.Time > DateTime.Now).Count();
+            var model = _context.Event.Where(e => e.Time > DateTime.Now)
+                                      .OrderByDescending(e => e.Id)
+                                      .Take(2);
+            return View(model);
         }
 
         public IActionResult History()
@@ -90,19 +91,18 @@ namespace Liverpool.Controllers
                 Image = _context.BackgroundImages.FirstOrDefault(),
                 History = _context.History.FirstOrDefault()
             };
-
             return View(viewModel);
         }
 
         public IActionResult Stadium()
         {
             ViewBag.Active = "Club";
+            ViewBag.StadiumCount = _context.StadiumPhotos.Count();
             StadiumViewModel viewModel = new StadiumViewModel()
             {
                 Image = _context.BackgroundImages.FirstOrDefault(),
                 Stadium = _context.Stadium.FirstOrDefault()
             };
-
             return View(viewModel);
         }
 

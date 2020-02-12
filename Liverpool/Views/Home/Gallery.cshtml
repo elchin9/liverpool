@@ -4,6 +4,7 @@
     ViewData["Title"] = "Gallery";
 }
 
+<input type="hidden" id="gallery-hidden-input" value="@ViewBag.ImageCount" />
 
 <section id="news">
     <div class="container">
@@ -17,23 +18,14 @@
 
 <section id="gallery">
     <div class="container">
-        <div class="row">
-
-            @foreach (var p in Model)
-            {
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-0">
-                    <div class="one-photo">
-                        <img src="~/images/@p.PhotoURL" alt="">
-                    </div>
-                </div>
-            }
-
+        <div class="row galleryRow">
+            <partial name="_GalleryPartialView" model="Model" />
         </div>
         @if (ViewBag.ImageCount > 20)
         {
             <div class="row mt-5">
                 <div class="col-12 text-center">
-                    <div class="btn-load-more">
+                    <div class="btn-load-more btn-gallery">
                         <a href="#">Daha Çox</a>
                     </div>
                 </div>
@@ -43,19 +35,8 @@
     <div class="container">
         <div class="inner-slider">
             <div class="inner-slide">
-                <ul class="inner-photos d-flex p-0 m-0">
-                    @foreach (var p in Model)
-                    {
-                        <li>
-                            <img src="~/images/@p.PhotoURL" alt="">
-                        </li>
-                    }
-                </ul>
-                <div class="inner-arrow-left">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="inner-arrow-right">
-                    <i class="fas fa-chevron-right"></i>
+                <div class="inner-photos d-flex p-0 m-0">
+                    <img src="" alt="">
                 </div>
             </div>
             <i class="close fas fa-times"></i>
