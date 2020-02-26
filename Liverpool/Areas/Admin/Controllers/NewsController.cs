@@ -36,8 +36,8 @@ namespace Liverpool.Areas.Admin.Controllers
                     return RedirectToAction("Login", "Account");
                 }
                 ViewBag.Active = "Home";
-
-                return View(_context.News.OrderByDescending(n => n.Id));
+                ViewBag.Count = _context.News.Count();
+                return View(_context.News.OrderByDescending(n => n.Id).Take(10));
             }
 
             public async Task<IActionResult> Details(int? id)

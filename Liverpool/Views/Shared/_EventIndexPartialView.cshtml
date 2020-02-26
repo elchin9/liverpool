@@ -1,0 +1,23 @@
+﻿@{
+    @model IEnumerable<Event>
+}
+
+@foreach (var b in Model)
+{
+    <tr>
+        <td>
+            <p>@b.Title</p>
+        </td>
+        <td>
+            <p>@b.Place</p>
+        </td>
+        <td>
+            <p>@b.Clock</p>
+        </td>
+        <td style="vertical-align: middle; text-align: center; color:white;">
+            <a title="Ətraflı bax" asp-area="Admin" asp-controller="Events" asp-action="Details" asp-route-id="@b.Id" class="btn btn-success mt-1"><i class="fal fa-info"></i></a>
+            <a title="Dəyişdir" asp-area="Admin" asp-controller="Events" asp-action="Edit" asp-route-id="@b.Id" class="btn btn-warning mt-1"><i class="fal fa-edit"></i></a>
+            <a title="Sil" asp-area="Admin" asp-controller="Events" asp-action="Delete" asp-route-id="@b.Id" class="btn btn-danger mt-1"><i class="fal fa-trash"></i></a>
+        </td>
+    </tr>
+}

@@ -8,6 +8,7 @@ using Liverpool.Extensions;
 using Liverpool.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Liverpool.Areas.Admin.Controllers
 {
@@ -36,8 +37,9 @@ namespace Liverpool.Areas.Admin.Controllers
                 return RedirectToAction("Login", "Account");
             }
             ViewBag.Active = "Home";
-
-            return View(_context.Video);
+            ViewBag.Count = _context.Video.Count();
+            IEnumerable<Video> videos = _context.Video.OrderByDescending(p => p.Id).Take(10);
+            return View(videos);
         }
 
         public async Task<IActionResult> Details(int? id)

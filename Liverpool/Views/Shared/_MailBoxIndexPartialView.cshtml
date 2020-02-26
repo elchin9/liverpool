@@ -1,0 +1,21 @@
+﻿@{
+    @model IEnumerable<MailBox>
+}
+@foreach (var b in Model)
+{
+    <tr>
+        <td>
+            <p>@b.Firstname</p>
+        </td>
+        <td>
+            <p>@b.Email </p>
+        </td>
+        <td>
+            <p>@String.Format("{0:yyyy-MM-dd}", b.Time)</p>
+        </td>
+        <td style="vertical-align: middle; text-align: center; color:white;">
+            <a title="Ətraflı bax" asp-area="Admin" asp-controller="Message" asp-action="Details" asp-route-id="@b.Id" class="btn btn-success mt-1"><i class="fal fa-info"></i></a>
+            <a title="Sil" asp-area="Admin" asp-controller="Message" asp-action="Delete" asp-route-id="@b.Id" class="btn btn-danger mt-1"><i class="fal fa-trash"></i></a>
+        </td>
+    </tr>
+}

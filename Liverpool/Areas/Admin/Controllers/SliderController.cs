@@ -147,7 +147,7 @@ namespace Liverpool.Areas.Admin.Controllers
 
             if (_context.Slider.Count() >= 5)
             {
-                ModelState.AddModelError("", "Saytda 5 dənədən çox slider ola bilməz.");
+                ModelState.AddModelError("Photo", "Saytda 5 dənədən çox slider ola bilməz.");
                 return View(slider);
             }
             string fileName = await slider.Photo.SaveAsync(_env.WebRootPath, "slider");

@@ -25,6 +25,11 @@
     <Folder Include="Areas\Admin\Views\Message\" />
     <Folder Include="Areas\Admin\Views\Cups\" />
     <Folder Include="Areas\Admin\Views\Events\" />
+    <Folder Include="Areas\Admin\Views\Gallery\" />
+    <Folder Include="Areas\Admin\Views\FirstTeam\" />
+    <Folder Include="Areas\Admin\Views\StaticData\" />
+    <Folder Include="Areas\Admin\Views\Player\" />
+    <Folder Include="Areas\Admin\Views\Video\" />
     <Folder Include="Areas\Admin\Views\News\" />
   </ItemGroup>
 

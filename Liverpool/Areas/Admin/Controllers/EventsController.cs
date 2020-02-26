@@ -33,7 +33,8 @@ namespace Liverpool.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
-            return View(_context.Event.OrderByDescending(n => n.Id));
+            ViewBag.Count = _context.Event.Count();
+            return View(_context.Event.OrderByDescending(n => n.Id).Take(10));
         }
 
         public async Task<IActionResult> Details(int? id)

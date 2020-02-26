@@ -22,6 +22,57 @@ namespace Liverpool.Controllers
             _userManager = userManager;
         }
 
+        public IActionResult LoadVideoIndex(int skip)
+        {
+            var model =
+                _context.Video.OrderByDescending(g => g.Id).Skip(skip).Take(10);
+
+            return PartialView("_VideoIndexPartialView", model);
+        }
+
+        public IActionResult LoadCupIndex(int skip)
+        {
+            var model =
+                _context.Cup.OrderByDescending(g => g.Id).Skip(skip).Take(10);
+
+            return PartialView("_CupIndexPartialView", model);
+        }
+        public IActionResult LoadNewsIndex(int skip)
+        {
+            var model =
+                _context.News.OrderByDescending(g => g.Id).Skip(skip).Take(10);
+
+            return PartialView("_NewsIndexPartialView", model);
+        }
+        public IActionResult LoadGalleryIndex(int skip)
+        {
+            var model =
+                _context.Gallery.OrderByDescending(g => g.Id).Skip(skip).Take(10);
+
+            return PartialView("_GalleryIndexPartialView", model);
+        }
+        public IActionResult LoadPlayerIndex(int skip)
+        {
+            var model =
+                _context.Player.OrderByDescending(g => g.Id).Skip(skip).Take(10);
+
+            return PartialView("_PlayerIndexPartialView", model);
+        }
+        public IActionResult LoadEventIndex(int skip)
+        {
+            var model =
+                _context.Event.OrderByDescending(g => g.Id).Skip(skip).Take(10);
+
+            return PartialView("_EventIndexPartialView", model);
+        }
+        public IActionResult LoadMessageIndex(int skip)
+        {
+            var model =
+                _context.MailBox.OrderByDescending(g => g.Id).Skip(skip).Take(10);
+
+            return PartialView("_MailBoxIndexPartialView", model);
+        }
+
         public IActionResult LoadGallery(int skip)
         {
             var model =

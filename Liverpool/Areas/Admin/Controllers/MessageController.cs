@@ -30,8 +30,8 @@ namespace Liverpool.Areas.Admin.Controllers
                 return RedirectToAction("Login", "Account");
             }
             ViewBag.Active = "Site";
-
-            return View(_context.MailBox.OrderByDescending(m => m.Id));
+            ViewBag.Count = _context.MailBox.Count();
+            return View(_context.MailBox.OrderByDescending(m => m.Id).Take(10));
         }
 
         public async Task<IActionResult> Details(int? id)
